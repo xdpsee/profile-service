@@ -1,0 +1,8 @@
+CREATE TABLE users (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  gmt_create TIMESTAMP NOT NULL,
+  gmt_modified TIMESTAMP NOT NULL,
+  nickname VARCHAR(64) NOT NULL UNIQUE ,
+  avatar VARCHAR(255),
+  PRIMARY KEY (id)
+);

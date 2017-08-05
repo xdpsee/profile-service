@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+    <defaultCache
+           eternal="true"
+           maxElementsInMemory="10000"
+           overflowToDisk="false"
+           diskPersistent="true"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+
+    <cache name="userCacheById"
+            eternal="true"
+            maxElementsInMemory="10000"
+            overflowToDisk="false"
+            diskPersistent="false"
+            timeToIdleSeconds="0"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+
+    <cache name="userCacheByNickname"
+           eternal="true"
+           maxElementsInMemory="10000"
+           overflowToDisk="false"
+           diskPersistent="false"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LRU">
+    </cache>
+
+</ehcache>
