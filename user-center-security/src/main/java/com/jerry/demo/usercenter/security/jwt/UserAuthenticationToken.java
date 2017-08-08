@@ -1,4 +1,4 @@
-package com.jerry.demo.usercenter.xauth.security.jwt;
+package com.jerry.demo.usercenter.security.jwt;
 
 import com.jerry.demo.usercenter.api.enums.AuthType;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-public class JwtAuthenticationToken extends AbstractAuthenticationToken {
+public class UserAuthenticationToken extends AbstractAuthenticationToken {
     @Getter
     private AuthType type;
     @Getter
@@ -18,7 +18,7 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
     @Getter @Setter
     private Long userId;
 
-    public JwtAuthenticationToken(AuthType type, String identifier, String credentials, Collection<? extends GrantedAuthority> authorities) {
+    public UserAuthenticationToken(AuthType type, String identifier, String credentials, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
 
         this.type = type;

@@ -1,9 +1,9 @@
-package com.jerry.demo.usercenter.xauth.security;
+package com.jerry.demo.usercenter.xauth;
 
 import com.jerry.demo.usercenter.api.enums.AuthType;
-import com.jerry.demo.usercenter.xauth.security.jwt.JwtAuthenticationToken;
-import com.jerry.demo.usercenter.xauth.security.jwt.JwtTokenUtils;
-import com.jerry.demo.usercenter.xauth.security.jwt.cache.JwtTokenCache;
+import com.jerry.demo.usercenter.security.jwt.UserAuthenticationToken;
+import com.jerry.demo.usercenter.security.jwt.UserTokenUtils;
+import com.jerry.demo.usercenter.xauth.jwt.cache.JwtTokenCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -24,8 +24,6 @@ public class UserAuthenticationService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtTokenCache jwtTokenCache;
-    @Autowired
-    private JwtTokenUtils jwtTokenUtils;
 
     public String authenticate(final String identifier, final String credential) {
 
@@ -35,7 +33,8 @@ public class UserAuthenticationService {
         } else if (identifier.matches(MOBILE_PATTERN)) {
             authType = AuthType.MOBILE;
         }
-        JwtAuthenticationToken upToken = new JwtAuthenticationToken(authType, identifier, credential, new ArrayList<>());
+
+        UserAuthenticationToken upToken = new UserAuthenticationToken(authType, identifier, credential, new ArrayList<>());
         final Authentication authentication = authenticationManager.authenticate(upToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -45,9 +44,9 @@ public class UserAuthenticationService {
             return token;
         }
 
-        token = jwtTokenUtils.generateToken(principal);
+        token = UserTokenUtils.generateToken(principal);
         if (token != null) {
-            jwtTokenCache.put(principal, token, jwtTokenUtils.getExpiresDateFromToken(token));
+            jwtTokenCache.put(principal, token, UserTokenUtils.getExpiresDateFromToken(token));
         }
 
         return token;

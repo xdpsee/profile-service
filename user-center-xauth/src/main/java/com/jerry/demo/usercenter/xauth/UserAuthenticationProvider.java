@@ -1,12 +1,12 @@
-package com.jerry.demo.usercenter.xauth.security;
+package com.jerry.demo.usercenter.xauth;
 
 import com.jerry.demo.usercenter.api.dto.UserAuth;
 import com.jerry.demo.usercenter.api.enums.AuthType;
 import com.jerry.demo.usercenter.api.services.UserAuthService;
-import com.jerry.demo.usercenter.xauth.security.jwt.JwtAuthenticationToken;
-import com.jerry.demo.usercenter.xauth.security.jwt.exception.EmailNotFoundException;
-import com.jerry.demo.usercenter.xauth.security.jwt.exception.MobileNotFoundException;
-import com.jerry.demo.usercenter.xauth.security.jwt.exception.UsernameNotFoundException;
+import com.jerry.demo.usercenter.security.jwt.UserAuthenticationToken;
+import com.jerry.demo.usercenter.xauth.jwt.exception.EmailNotFoundException;
+import com.jerry.demo.usercenter.xauth.jwt.exception.MobileNotFoundException;
+import com.jerry.demo.usercenter.xauth.jwt.exception.UsernameNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -24,7 +24,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
-        JwtAuthenticationToken token = (JwtAuthenticationToken) auth;
+        UserAuthenticationToken token = (UserAuthenticationToken) auth;
 
         final UserAuth userAuth = userAuthService.getUserAuth(token.getType(), token.getIdentifier());
         if (userAuth == null) {
@@ -49,7 +49,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return authentication.equals(JwtAuthenticationToken.class);
+        return authentication.equals(UserAuthenticationToken.class);
     }
 }
 

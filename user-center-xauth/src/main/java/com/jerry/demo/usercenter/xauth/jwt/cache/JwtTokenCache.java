@@ -1,4 +1,4 @@
-package com.jerry.demo.usercenter.xauth.security.jwt.cache;
+package com.jerry.demo.usercenter.xauth.jwt.cache;
 
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;

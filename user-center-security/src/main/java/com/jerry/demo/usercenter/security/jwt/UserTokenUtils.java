@@ -1,30 +1,21 @@
-package com.jerry.demo.usercenter.xauth.security.jwt;
+package com.jerry.demo.usercenter.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
-public class JwtTokenUtils {
+public class UserTokenUtils {
 
     private static final String CLAIM_KEY_PRINCIPAL = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
+    private static final String secret = "";
+    private static final Long expiration = 10000000L;
 
-    @Value("${jwt.secret}")
-    private String secret;
-
-    @Value("${jwt.expiration}")
-    private Long expiration;
-
-    public String getPrincipalFromToken(String token) {
+    public static String getPrincipalFromToken(String token) {
         String username;
         try {
             final Claims claims = getClaimsFromToken(token);
@@ -35,7 +26,7 @@ public class JwtTokenUtils {
         return username;
     }
 
-    public Date getExpiresDateFromToken(String token) {
+    public static Date getExpiresDateFromToken(String token) {
         Date expiration;
         try {
             final Claims claims = getClaimsFromToken(token);
@@ -48,7 +39,7 @@ public class JwtTokenUtils {
 
 
 
-    public String generateToken(String principal) {
+    public static String generateToken(String principal) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_PRINCIPAL, principal);
         claims.put(CLAIM_KEY_CREATED, new Date());
@@ -56,7 +47,7 @@ public class JwtTokenUtils {
         return generateToken(claims);
     }
 
-    public String refreshToken(String token) {
+    public static String refreshToken(String token) {
         String refreshedToken;
         try {
             final Claims claims = getClaimsFromToken(token);
@@ -69,7 +60,7 @@ public class JwtTokenUtils {
         return refreshedToken;
     }
 
-    private Claims getClaimsFromToken(String token) {
+    private static Claims getClaimsFromToken(String token) {
         Claims claims;
         try {
             claims = Jwts.parser()
@@ -83,7 +74,7 @@ public class JwtTokenUtils {
         return claims;
     }
 
-    private String generateToken(Map<String, Object> claims) {
+    private static String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())
@@ -91,7 +82,7 @@ public class JwtTokenUtils {
                 .compact();
     }
 
-    private Date generateExpirationDate() {
+    private static Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 

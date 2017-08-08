@@ -1,6 +1,6 @@
 package com.jerry.demo.usercenter.xauth.service;
 
-import com.jerry.demo.usercenter.xauth.security.UserAuthenticationService;
+import com.jerry.demo.usercenter.xauth.UserAuthenticationService;
 import com.jerry.demo.usercenter.xauth.service.request.TokenClaimRequest;
 import com.jerry.demo.usercenter.xauth.service.request.TokenRefreshRequest;
 import com.jerry.demo.usercenter.xauth.service.response.JwtTokenResponse;
