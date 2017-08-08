@@ -10,8 +10,8 @@
 
     <dubbo:protocol name="dubbo" port="20880"/>
 
-    <dubbo:service interface="com.jerry.demo.usercenter.api.services.UserInfoService" ref="userInfoService"/>
+    <dubbo:service interface="com.jerry.demo.usercenter.api.services.UserService" ref="userInfoService"/>
 
-    <bean id="userInfoService" class="com.jerry.demo.usercenter.services.impl.UserInfoServiceImpl"/>
+    <bean id="userInfoService" class="com.jerry.demo.usercenter.services.impl.UserServiceImpl"/>
 
 </beans>

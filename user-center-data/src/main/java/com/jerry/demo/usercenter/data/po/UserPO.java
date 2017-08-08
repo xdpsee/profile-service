@@ -5,13 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class UserPO {
-
-    private Long id;
-
-    private Date gmtCreate;
-
-    private Date gmtModified;
+public class UserPO extends BasePO {
 
     private String nickname;
 

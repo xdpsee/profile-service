@@ -18,7 +18,7 @@ public class UserCacheEvictAspect {
     @Autowired
     private CacheManager cacheManager;
 
-    @AfterReturning("execution(* com.jerry.demo.usercenter.services.impl.UserInfoServiceImpl.*(..)) && " +
+    @AfterReturning("execution(* com.jerry.demo.usercenter.services.impl.UserServiceImpl.*(..)) && " +
             "(@annotation(evict))")
     public void after(JoinPoint joinPoint, UserCacheEvict evict) {
         final User user = (User) joinPoint.getArgs()[0];

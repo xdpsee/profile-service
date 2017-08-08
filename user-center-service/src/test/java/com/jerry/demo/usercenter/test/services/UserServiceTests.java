@@ -1,12 +1,13 @@
 package com.jerry.demo.usercenter.test.services;
 
 import com.jerry.demo.usercenter.api.dto.User;
-import com.jerry.demo.usercenter.api.services.UserInfoService;
+import com.jerry.demo.usercenter.api.services.UserService;
 import com.jerry.demo.usercenter.data.mapper.UserMapper;
 import com.jerry.demo.usercenter.data.po.UserPO;
 import com.jerry.demo.usercenter.test.BaseJUnitTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -15,14 +16,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @SuppressWarnings("SpringJavaAutowiringInspection")
-public class UserInfoServiceTests extends BaseJUnitTests {
+public class UserServiceTests extends BaseJUnitTests {
 
     @Autowired
     private UserMapper userMapper;
     @Autowired
-    private UserInfoService userInfoService;
+    private UserService userService;
 
     @Test
+    @Transactional
     public void testGetUser() {
 
         UserPO userPO = new UserPO();
@@ -34,11 +36,12 @@ public class UserInfoServiceTests extends BaseJUnitTests {
         int rows = userMapper.insert(userPO);
         assertEquals(1, rows);
 
-        User ret = userInfoService.getUser(userPO.getId());
+        User ret = userService.getUserById(userPO.getId());
         assertNotNull(ret);
     }
 
     @Test
+    @Transactional
     public void testUpdate() {
 
         UserPO userPO = new UserPO();
@@ -51,7 +54,7 @@ public class UserInfoServiceTests extends BaseJUnitTests {
         assertEquals(1, rows);
 
         User user = new User(userPO.getId(), "John Mick", userPO.getAvatar());
-        boolean ret = userInfoService.updateUser(user);
+        boolean ret = userService.update(user);
         assertTrue(ret);
 
         System.out.println("....");

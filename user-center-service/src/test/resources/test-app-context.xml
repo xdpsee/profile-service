@@ -29,7 +29,7 @@
 
     <import resource="test-data-context.xml"/>
 
-    <bean id="userInfoService" class="com.jerry.demo.usercenter.services.impl.UserInfoServiceImpl"/>
+    <bean id="userInfoService" class="com.jerry.demo.usercenter.services.impl.UserServiceImpl"/>
 
 </beans>
 

@@ -12,6 +12,7 @@
         <module>user-center-api</module>
         <module>user-center-data</module>
         <module>user-center-service</module>
+        <module>user-center-xauth</module>
     </modules>
 
     <properties>
