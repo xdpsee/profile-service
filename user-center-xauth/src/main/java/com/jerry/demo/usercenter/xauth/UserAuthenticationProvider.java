@@ -1,8 +1,8 @@
 package com.jerry.demo.usercenter.xauth;
 
-import com.jerry.demo.usercenter.api.dto.UserAuth;
+import com.jerry.demo.usercenter.api.dto.UserAuthInfo;
 import com.jerry.demo.usercenter.api.enums.AuthType;
-import com.jerry.demo.usercenter.api.services.UserAuthService;
+import com.jerry.demo.usercenter.api.services.UserAuthInfoService;
 import com.jerry.demo.usercenter.security.jwt.UserAuthenticationToken;
 import com.jerry.demo.usercenter.xauth.jwt.exception.EmailNotFoundException;
 import com.jerry.demo.usercenter.xauth.jwt.exception.MobileNotFoundException;
@@ -17,7 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class UserAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private UserAuthService userAuthService;
+    private UserAuthInfoService userAuthInfoService;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -26,8 +26,8 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 
         UserAuthenticationToken token = (UserAuthenticationToken) auth;
 
-        final UserAuth userAuth = userAuthService.getUserAuth(token.getType(), token.getIdentifier());
-        if (userAuth == null) {
+        final UserAuthInfo userAuthInfo = userAuthInfoService.getUserAuthInfo(token.getType(), token.getIdentifier());
+        if (userAuthInfo == null) {
             if (AuthType.EMAIL.equals(token.getType())) {
                 throw new EmailNotFoundException();
             } else if (AuthType.MOBILE.equals(token.getType())) {
@@ -37,11 +37,11 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
             }
         }
 
-        if (!passwordEncoder.matches((String)token.getCredentials(), userAuth.getCredential())) {
+        if (!passwordEncoder.matches((String)token.getCredentials(), userAuthInfo.getCredential())) {
             throw new BadCredentialsException("密码错误");
         }
 
-        token.setUserId(userAuth.getUserId());
+        token.setUserId(userAuthInfo.getUserId());
 
         return token;
 

@@ -1,6 +1,7 @@
 package com.jerry.demo.usercenter.services.utils.aop.aspect;
 
 import com.jerry.demo.usercenter.api.dto.User;
+import com.jerry.demo.usercenter.api.services.UserService;
 import com.jerry.demo.usercenter.services.utils.UserCacheNames;
 import com.jerry.demo.usercenter.services.utils.aop.annotations.UserCacheEvict;
 import net.sf.ehcache.CacheManager;
@@ -17,12 +18,19 @@ public class UserCacheEvictAspect {
 
     @Autowired
     private CacheManager cacheManager;
+    @Autowired
+    private UserService userService;
 
     @AfterReturning("execution(* com.jerry.demo.usercenter.services.impl.UserServiceImpl.*(..)) && " +
             "(@annotation(evict))")
     public void after(JoinPoint joinPoint, UserCacheEvict evict) {
-        final User user = (User) joinPoint.getArgs()[0];
-        evictUserCache(evict, user);
+        final Long userId = (Long) joinPoint.getArgs()[0];
+        User user = userService.getUserById(userId);
+        if (user != null) {
+            evictUserCache(evict, user);
+        }
+
+
     }
 
     private void evictUserCache(UserCacheEvict evict, User user) {

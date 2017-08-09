@@ -3,8 +3,11 @@ package com.jerry.demo.usercenter.api.dto;
 import com.jerry.demo.usercenter.api.enums.AuthType;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-public class UserAuth {
+public class UserAuthInfo {
 
     private AuthType type;
 
@@ -15,4 +18,6 @@ public class UserAuth {
     private boolean verified;
 
     private Long userId;
+
+    private List<UserAuthority> authorities = new ArrayList<>();
 }

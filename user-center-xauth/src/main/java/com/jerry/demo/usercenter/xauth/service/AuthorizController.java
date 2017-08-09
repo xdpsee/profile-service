@@ -23,7 +23,7 @@ public class AuthorizController {
 
         String token = authenticationService.authenticate(request.getPrincipal(), request.getCredential());
 
-        return "";
+        return new JwtTokenResponse();
     }
 
     @ResponseBody

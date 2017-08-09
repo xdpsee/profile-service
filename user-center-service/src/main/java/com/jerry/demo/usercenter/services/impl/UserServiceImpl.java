@@ -6,8 +6,11 @@ import com.jerry.demo.usercenter.data.mapper.UserMapper;
 import com.jerry.demo.usercenter.data.po.UserPO;
 import com.jerry.demo.usercenter.services.utils.UserCacheNames;
 import com.jerry.demo.usercenter.services.utils.aop.annotations.UserCacheEvict;
+import com.jerry.demo.usercenter.services.utils.aop.annotations.UserId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+
+import java.util.Collection;
 
 @SuppressWarnings("SpringJavaAutowiringInspection")
 public class UserServiceImpl implements UserService {
@@ -16,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User createUser(String identifier, String credential, String nickname) {
+    public User createUser(String identifier, String credential, String nickname, Collection<String> authorities) {
         return null;
     }
 
@@ -33,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Cacheable(value = UserCacheNames.userCacheByNickname)
-    public User getUserByName(String nickname) {
+    public User getUserByNickName(String nickname) {
         UserPO po = userMapper.selectByNickname(nickname);
         if (po != null) {
             return new User(po.getId(),po.getGmtCreate().getTime(), po.getNickname(), po.getAvatar());
@@ -43,9 +46,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @UserCacheEvict(userCacheNames = {UserCacheNames.userCacheById, UserCacheNames.userCacheByNickname}, key="#p0")
-    public boolean updateUser(User user) {
-        final int rows = userMapper.update(user.getId(), user.getNickname(), user.getAvatar());
+    @UserCacheEvict(userCacheNames = {UserCacheNames.userCacheById, UserCacheNames.userCacheByNickname})
+    public boolean updateAvatar(@UserId Long userId, String avatar) {
+        final int rows = userMapper.update(userId, null, avatar);
         return rows > 0;
     }
 }

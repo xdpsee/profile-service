@@ -1,5 +1,6 @@
 package com.jerry.demo.usercenter.api.enums;
 
+@SuppressWarnings("unused")
 public enum AuthType {
     USERNAME(0, "用户名"),
     MOBILE(1, "手机"),

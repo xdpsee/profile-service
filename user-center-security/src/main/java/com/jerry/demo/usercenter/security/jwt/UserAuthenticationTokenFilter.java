@@ -1,5 +1,9 @@
 package com.jerry.demo.usercenter.security.jwt;
 
+import com.jerry.demo.usercenter.api.dto.UserAuthInfo;
+import com.jerry.demo.usercenter.api.services.UserAuthInfoService;
+import lombok.Setter;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -8,38 +12,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
-@SuppressWarnings("SpringJavaAutowiringInspection")
-public abstract class UserAuthenticationTokenFilter extends OncePerRequestFilter {
+@SuppressWarnings("unused")
+public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
 
     // Http request header
     private static final String AUTHORIZATION = "Authorization";
     // Authorization value head
     private static final String BEARER = "Bearer ";
 
+    @Setter
+    private UserAuthInfoService userAuthInfoService;
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain chain) throws ServletException, IOException {
-//        String authHeader = request.getHeader(AUTHORIZATION);
-//        if (authHeader != null && authHeader.startsWith(BEARER)) {
-//            final String authToken = authHeader.substring(BEARER.length()); // The part after "Bearer "
-//            String principal = userTokenUtils.getPrincipalFromToken(authToken);
-//
-//            logger.info("Authentication checking principal: " + principal);
-//
-//            if (principal != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-//                final String cachedToken = jwtTokenCache.get(principal);
-//                if (cachedToken != null && cachedToken.equals(authToken)) {
-//                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-//                            principal, null, userTokenUtils.getAuthoritiesFromToken(cachedToken));
-//                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-//                    logger.info("Authentication principal: " + principal + " authenticated");
-//                    SecurityContextHolder.getContext().setAuthentication(authentication);
-//                }
-//            }
-//        }
+
         if (SecurityContextHolder.getContext().getAuthentication() == null) {
             UserAuthenticationToken authentication = getAuthenticationToken(request);
             if (authentication != null) {
@@ -50,6 +41,27 @@ public abstract class UserAuthenticationTokenFilter extends OncePerRequestFilter
         chain.doFilter(request, response);
     }
 
-    protected abstract UserAuthenticationToken getAuthenticationToken(final HttpServletRequest request);
+    private UserAuthenticationToken getAuthenticationToken(final HttpServletRequest request) {
+
+        final String authHeader = request.getHeader(AUTHORIZATION);
+        if (authHeader == null || !authHeader.startsWith(BEARER)) {
+            return null;
+        }
+
+        UserAuthenticationToken authenticationToken = null;
+
+        final String jwtToken = authHeader.substring(BEARER.length() + 1); // The part after "Bearer "
+        UserAuthInfo authInfo = userAuthInfoService.getUserAuthInfo(jwtToken);
+        if (authInfo != null) {
+            authenticationToken = new UserAuthenticationToken(authInfo.getType()
+                    , authInfo.getIdentifier()
+                    , null
+                    , authInfo.getAuthorities().stream()
+                    .map(e -> new SimpleGrantedAuthority(e.getRole()))
+                    .collect(Collectors.toList()));
+        }
+
+        return authenticationToken;
+    }
 }
 

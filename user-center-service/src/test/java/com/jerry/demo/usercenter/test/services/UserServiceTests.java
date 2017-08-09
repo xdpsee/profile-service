@@ -53,13 +53,10 @@ public class UserServiceTests extends BaseJUnitTests {
         int rows = userMapper.insert(userPO);
         assertEquals(1, rows);
 
-        User user = new User(userPO.getId(), "John Mick", userPO.getAvatar());
-        boolean ret = userService.update(user);
+        User user = new User(userPO.getId(), System.currentTimeMillis(), "John Mick", userPO.getAvatar());
+        boolean ret = userService.updateAvatar(user.getId(), user.getAvatar());
         assertTrue(ret);
 
-        System.out.println("....");
     }
-
-
 
 }
