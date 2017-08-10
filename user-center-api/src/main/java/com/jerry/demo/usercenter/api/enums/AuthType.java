@@ -1,5 +1,7 @@
 package com.jerry.demo.usercenter.api.enums;
 
+import java.util.Arrays;
+
 @SuppressWarnings("unused")
 public enum AuthType {
     USERNAME(0, "用户名"),
@@ -16,5 +18,12 @@ public enum AuthType {
     AuthType(int code, String comment) {
         this.code = code;
         this.comment = comment;
+    }
+
+    public static AuthType valueOf(int code) {
+        return Arrays.stream(values())
+                .filter(e -> e.code == code)
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

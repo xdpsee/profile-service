@@ -21,8 +21,13 @@
     </settings>
 
     <typeAliases>
+        <typeAlias alias="AuthType" type="com.jerry.demo.usercenter.api.enums.AuthType"/>
         <typeAlias alias="UserPO" type="com.jerry.demo.usercenter.data.po.UserPO"/>
+        <typeAlias alias="UserAuthInfoPO" type="com.jerry.demo.usercenter.data.po.UserAuthInfoPO"/>
     </typeAliases>
 
+    <typeHandlers>
+        <typeHandler handler="com.jerry.demo.usercenter.data.utils.AuthTypeHandler"/>
+    </typeHandlers>
 
 </configuration>

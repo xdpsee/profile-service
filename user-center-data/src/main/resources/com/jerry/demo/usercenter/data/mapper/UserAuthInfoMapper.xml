@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper">
+
+    <resultMap type="UserAuthInfoPO" id="userAuthInfoMap">
+        <result property="id" javaType="Long" column="id" jdbcType="BIGINT"/>
+        <result property="gmtCreate" javaType="java.util.Date" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" javaType="java.util.Date" column="gmt_modified" jdbcType="TIMESTAMP"/>
+        <result property="type" javaType="AuthType" column="type" jdbcType="INTEGER"
+                typeHandler="com.jerry.demo.usercenter.data.utils.AuthTypeHandler"/>
+        <result property="identifier" javaType="String" column="identifier" jdbcType="VARCHAR"/>
+        <result property="credential" javaType="String" column="credential" jdbcType="VARCHAR"/>
+        <result property="userId" javaType="Long" column="user_id" jdbcType="BIGINT"/>
+        <result property="verified" javaType="Boolean" column="verified" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="UserAuthInfoPO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_auth_infos (
+        gmt_create,
+        gmt_modified,
+        `type`,
+        identifier,
+        credential,
+        user_id,
+        verified
+        ) VALUES (
+        #{gmtCreate},
+        #{gmtModified},
+        #{type},
+        #{identifier},
+        #{credential},
+        #{userId},
+        #{verified}
+        )
+    </insert>
+
+    <select id="select" resultMap="userAuthInfoMap">
+        SELECT * FROM user_auth_infos
+        WHERE type = #{type} and identifier = #{identifier}
+    </select>
+
+</mapper>
+

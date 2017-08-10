@@ -4,7 +4,7 @@ import com.jerry.demo.usercenter.api.enums.AuthType;
 import lombok.Data;
 
 @Data
-public class UserAuthPO extends BasePO {
+public class UserAuthInfoPO extends BasePO {
     /**
      * 认证类型
      */
@@ -20,7 +20,7 @@ public class UserAuthPO extends BasePO {
     /**
      * 绑定的用户ID
      */
-    private Long userId;
+    private Long userId = 0L;
     /**
      * 是否已验证
      */

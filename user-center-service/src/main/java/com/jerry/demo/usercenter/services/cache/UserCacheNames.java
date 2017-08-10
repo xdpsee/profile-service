@@ -1,4 +1,4 @@
-package com.jerry.demo.usercenter.services.utils;
+package com.jerry.demo.usercenter.services.cache;
 
 public interface UserCacheNames {
 
