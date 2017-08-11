@@ -2,6 +2,7 @@ package com.jerry.demo.usercenter.xauth;
 
 import com.jerry.demo.usercenter.api.enums.AuthType;
 import com.jerry.demo.usercenter.api.services.UserAuthInfoService;
+import com.jerry.demo.usercenter.security.jwt.Principal;
 import com.jerry.demo.usercenter.security.jwt.UserAuthenticationToken;
 import com.jerry.demo.usercenter.security.jwt.UserTokenUtils;
 import com.jerry.demo.usercenter.xauth.jwt.cache.JwtTokenCache;
@@ -23,8 +24,6 @@ public class UserAuthenticationService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
-    private UserAuthInfoService userAuthInfoService;
 
     public String authenticate(final String identifier, final String credential) {
 
@@ -39,9 +38,13 @@ public class UserAuthenticationService {
         final Authentication authentication = authenticationManager.authenticate(upToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return userAuthInfoService.genJwtToken(authType, identifier);
+
+
+        return UserTokenUtils.generateToken(new Principal(authType, identifier));
     }
 }
+
+
 
 
 
