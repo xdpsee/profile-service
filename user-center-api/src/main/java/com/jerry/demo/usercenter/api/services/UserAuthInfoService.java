@@ -7,10 +7,6 @@ public interface UserAuthInfoService {
 
     UserAuthInfo getUserAuthInfo(AuthType type, String identifier);
 
-    UserAuthInfo getUserAuthInfo(String jwtToken);
-
-    String genJwtToken(AuthType type, String identifier);
-
     boolean bindUser(AuthType type, String identifier, long userId);
 
 }

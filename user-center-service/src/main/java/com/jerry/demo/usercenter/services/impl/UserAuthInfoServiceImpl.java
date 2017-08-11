@@ -12,27 +12,6 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
         return null;
     }
 
-    @Override
-    public UserAuthInfo getUserAuthInfo(String jwtToken) {
-        return null;
-    }
-
-    @Override
-    public String genJwtToken(AuthType type, String identifier) {
-
-//        final String principal = upToken.getPrincipal().toString();
-//        String token = jwtTokenCache.get(upToken.getPrincipal().toString());
-//        if (!StringUtils.isEmpty(token)) {
-//            return token;
-//        }
-//
-//        token = UserTokenUtils.generateToken(principal);
-//        if (token != null) {
-//            jwtTokenCache.put(principal, token, UserTokenUtils.getExpiresDateFromToken(token));
-//        }
-
-        return null;
-    }
 
     @Override
     public boolean bindUser(AuthType type, String identifier, long userId) {

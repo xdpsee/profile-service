@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
@@ -48,10 +49,20 @@ public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
             return null;
         }
 
-        UserAuthenticationToken authenticationToken = null;
-
         final String jwtToken = authHeader.substring(BEARER.length() + 1); // The part after "Bearer "
-        UserAuthInfo authInfo = userAuthInfoService.getUserAuthInfo(jwtToken);
+
+        final Principal principal = UserTokenUtils.getPrincipal(jwtToken);
+        final Date expireDate = UserTokenUtils.getExpiresDate(jwtToken);
+        if (null == expireDate || null == principal) {
+            throw new IllegalAuthTokenException("Token非法");
+        }
+
+        if (expireDate.before(new Date())) {
+            throw new AuthTokenExpiresException("Token过期");
+        }
+
+        UserAuthenticationToken authenticationToken = null;
+        UserAuthInfo authInfo = userAuthInfoService.getUserAuthInfo(principal.getAuthType(), principal.getIdentifier());
         if (authInfo != null) {
             authenticationToken = new UserAuthenticationToken(authInfo.getType()
                     , authInfo.getIdentifier()
@@ -64,4 +75,5 @@ public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
         return authenticationToken;
     }
 }
+
 

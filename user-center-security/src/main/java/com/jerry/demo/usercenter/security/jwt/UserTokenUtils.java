@@ -1,5 +1,6 @@
 package com.jerry.demo.usercenter.security.jwt;
 
+import com.jerry.demo.usercenter.api.enums.AuthType;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -15,33 +16,10 @@ public class UserTokenUtils {
     private static final String secret = "";
     private static final Long expiration = 10000000L;
 
-    public static String getPrincipalFromToken(String token) {
-        String username;
-        try {
-            final Claims claims = getClaimsFromToken(token);
-            username = claims.getSubject();
-        } catch (Exception e) {
-            username = null;
-        }
-        return username;
-    }
-
-    public static Date getExpiresDateFromToken(String token) {
-        Date expiration;
-        try {
-            final Claims claims = getClaimsFromToken(token);
-            expiration = claims.getExpiration();
-        } catch (Exception e) {
-            expiration = null;
-        }
-        return expiration;
-    }
-
-
-
-    public static String generateToken(String principal) {
+    public static String generateToken(Principal principal) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(CLAIM_KEY_PRINCIPAL, principal);
+
+        claims.put(CLAIM_KEY_PRINCIPAL, principal.toString());
         claims.put(CLAIM_KEY_CREATED, new Date());
 
         return generateToken(claims);
@@ -58,6 +36,33 @@ public class UserTokenUtils {
         }
 
         return refreshedToken;
+    }
+
+    public static Principal getPrincipal(String token) {
+        Principal principal = null;
+        try {
+            final Claims claims = getClaimsFromToken(token);
+            String subject = claims.getSubject();
+            String components[] = subject.split(":");
+            principal = new Principal(AuthType.valueOf(components[0]), components[1]);
+        } catch (Exception e) {
+
+        }
+
+        return principal;
+    }
+
+    public static Date getExpiresDate(String token) {
+        Date expiration;
+
+        try {
+            final Claims claims = getClaimsFromToken(token);
+            expiration = claims.getExpiration();
+        } catch (Exception e) {
+            expiration = null;
+        }
+
+        return expiration;
     }
 
     private static Claims getClaimsFromToken(String token) {
@@ -77,12 +82,12 @@ public class UserTokenUtils {
     private static String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
                 .setClaims(claims)
-                .setExpiration(generateExpirationDate())
+                .setExpiration(genExpireDate())
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
 
-    private static Date generateExpirationDate() {
+    private static Date genExpireDate() {
         return new Date(System.currentTimeMillis() + expiration * 1000);
     }
 
