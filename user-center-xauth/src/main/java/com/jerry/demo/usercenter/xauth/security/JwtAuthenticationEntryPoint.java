@@ -1,8 +1,8 @@
-package com.jerry.demo.usercenter.xauth;
+package com.jerry.demo.usercenter.xauth.security;
 
-import com.jerry.demo.usercenter.xauth.jwt.exception.EmailNotFoundException;
-import com.jerry.demo.usercenter.xauth.jwt.exception.MobileNotFoundException;
-import com.jerry.demo.usercenter.xauth.jwt.exception.UsernameNotFoundException;
+import com.jerry.demo.usercenter.xauth.exception.EmailNotFoundException;
+import com.jerry.demo.usercenter.xauth.exception.MobileNotFoundException;
+import com.jerry.demo.usercenter.xauth.exception.UsernameNotFoundException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

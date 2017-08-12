@@ -1,4 +1,4 @@
-package com.jerry.demo.usercenter.xauth.service.request;
+package com.jerry.demo.usercenter.xauth.controller.request;
 
 import lombok.Data;
 

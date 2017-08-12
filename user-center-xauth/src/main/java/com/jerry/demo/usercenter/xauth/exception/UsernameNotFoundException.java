@@ -1,4 +1,4 @@
-package com.jerry.demo.usercenter.xauth.jwt.exception;
+package com.jerry.demo.usercenter.xauth.exception;
 
 import org.springframework.security.core.AuthenticationException;
 
