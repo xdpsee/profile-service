@@ -1,0 +1,212 @@
+2017-08-13 19:52:19 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 19:52:20 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@45018215, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65d6b83b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19, org.springframework.test.context.support.DirtiesContextTestExecutionListener@30b7c004, org.springframework.test.context.transaction.TransactionalTestExecutionListener@79efed2d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2928854b]
+2017-08-13 19:52:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 19:52:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 19:52:22 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Sun Aug 13 19:52:22 CST 2017]; root of context hierarchy
+2017-08-13 19:52:25 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 19:52:27 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 19:52:28 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 19:52:28 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 64 ms.
+2017-08-13 19:52:43 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Sun Aug 13 19:52:22 CST 2017]; root of context hierarchy
+2017-08-13 19:52:43 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 19:52:43 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:03:43 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:03:43 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@124c278f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15b204a1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77167fb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fe20588, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ce139a4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6973bf95]
+2017-08-13 21:03:44 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:03:45 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:03:45 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:03:45 CST 2017]; root of context hierarchy
+2017-08-13 21:03:46 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:03:46 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:03:47 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:03:47 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 45 ms.
+2017-08-13 21:03:48 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@68f32020 testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@409986fe, testMethod = testUpdate@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@54d901aa testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@19b047fe]; rollback [true]
+2017-08-13 21:03:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-08-13 21:03:48 INFO  SQLErrorCodesFactory:127 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2017-08-13 21:03:49 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@68f32020 testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@409986fe, testMethod = testUpdate@UserServiceTests, testException = org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: org.h2.jdbc.JdbcSQLException: NULL not allowed for column "GMT_CREATE"; SQL statement:
+INSERT INTO users (
+        gmt_create,
+        gmt_modified,
+        nickname,
+        avatar,
+        authorities
+        ) VALUES (
+         
+                ?,
+             
+         
+                ?,
+             
+        ?,
+        ?,
+        ?
+        ) [23502-193]
+### The error may involve com.jerry.demo.usercenter.data.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO users (         gmt_create,         gmt_modified,         nickname,         avatar,         authorities         ) VALUES (                           ?,                                         ?,                       ?,         ?,         ?         )
+### Cause: org.h2.jdbc.JdbcSQLException: NULL not allowed for column "GMT_CREATE"; SQL statement:
+INSERT INTO users (
+        gmt_create,
+        gmt_modified,
+        nickname,
+        avatar,
+        authorities
+        ) VALUES (
+         
+                ?,
+             
+         
+                ?,
+             
+        ?,
+        ?,
+        ?
+        ) [23502-193]
+; SQL []; NULL not allowed for column "GMT_CREATE"; SQL statement:
+INSERT INTO users (
+        gmt_create,
+        gmt_modified,
+        nickname,
+        avatar,
+        authorities
+        ) VALUES (
+         
+                ?,
+             
+         
+                ?,
+             
+        ?,
+        ?,
+        ?
+        ) [23502-193]; nested exception is org.h2.jdbc.JdbcSQLException: NULL not allowed for column "GMT_CREATE"; SQL statement:
+INSERT INTO users (
+        gmt_create,
+        gmt_modified,
+        nickname,
+        avatar,
+        authorities
+        ) VALUES (
+         
+                ?,
+             
+         
+                ?,
+             
+        ?,
+        ?,
+        ?
+        ) [23502-193], mergedContextConfiguration = [MergedContextConfiguration@54d901aa testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:03:49 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:03:45 CST 2017]; root of context hierarchy
+2017-08-13 21:03:49 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:03:49 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:07:03 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:07:03 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@124c278f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15b204a1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77167fb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fe20588, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ce139a4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6973bf95]
+2017-08-13 21:07:03 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:07:04 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:07:04 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:07:04 CST 2017]; root of context hierarchy
+2017-08-13 21:07:05 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:07:06 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:07:06 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:07:06 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 43 ms.
+2017-08-13 21:07:07 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@68f32020 testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@409986fe, testMethod = testUpdate@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@54d901aa testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@19b047fe]; rollback [true]
+2017-08-13 21:07:07 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@68f32020 testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@409986fe, testMethod = testUpdate@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@54d901aa testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:07:07 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:07:04 CST 2017]; root of context hierarchy
+2017-08-13 21:07:08 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:07:08 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:18:31 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:18:31 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@42d80b78, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3bfdc050, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1bce4f0a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5e3a8624, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c3bd550, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@91161c7]
+2017-08-13 21:18:31 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:18:32 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:18:32 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5abca1e0: startup date [Sun Aug 13 21:18:32 CST 2017]; root of context hierarchy
+2017-08-13 21:18:33 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:18:33 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:18:34 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:18:34 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 47 ms.
+2017-08-13 21:18:35 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5abca1e0: startup date [Sun Aug 13 21:18:32 CST 2017]; root of context hierarchy
+2017-08-13 21:18:35 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:18:35 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:18:54 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:18:54 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@e25b2fe, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@754ba872, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@146ba0ac, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4dfa3a9d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6eebc39e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@464bee09]
+2017-08-13 21:18:54 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:18:55 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:18:55 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5a8e6209: startup date [Sun Aug 13 21:18:55 CST 2017]; root of context hierarchy
+2017-08-13 21:18:56 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:18:56 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:18:57 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:18:57 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 36 ms.
+2017-08-13 21:18:58 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@2dbe250d testClass = UserAuthInfoMapperTests, testInstance = com.jerry.demo.usercenter.test.mapper.UserAuthInfoMapperTests@553f1d75, testMethod = testInsert@UserAuthInfoMapperTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1b065145 testClass = UserAuthInfoMapperTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@6e1d8f9e]; rollback [true]
+2017-08-13 21:18:58 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@2dbe250d testClass = UserAuthInfoMapperTests, testInstance = com.jerry.demo.usercenter.test.mapper.UserAuthInfoMapperTests@553f1d75, testMethod = testInsert@UserAuthInfoMapperTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1b065145 testClass = UserAuthInfoMapperTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:18:58 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5a8e6209: startup date [Sun Aug 13 21:18:55 CST 2017]; root of context hierarchy
+2017-08-13 21:18:58 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:18:58 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:23:58 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:23:58 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@146ba0ac, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4dfa3a9d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6eebc39e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@464bee09, org.springframework.test.context.transaction.TransactionalTestExecutionListener@f6c48ac, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@13deb50e]
+2017-08-13 21:23:58 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:23:59 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:23:59 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@731a74c: startup date [Sun Aug 13 21:23:59 CST 2017]; root of context hierarchy
+2017-08-13 21:23:59 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:24:00 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:24:01 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:24:01 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 40 ms.
+2017-08-13 21:24:01 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@6e1d8f9e testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3e34ace1, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@45cff11c testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@62fe6067]; rollback [true]
+2017-08-13 21:24:02 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@6e1d8f9e testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3e34ace1, testMethod = testCreateUser@UserServiceTests, testException = java.lang.NullPointerException, mergedContextConfiguration = [MergedContextConfiguration@45cff11c testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:24:02 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@731a74c: startup date [Sun Aug 13 21:23:59 CST 2017]; root of context hierarchy
+2017-08-13 21:24:02 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:24:02 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:24:15 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:24:15 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@124c278f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15b204a1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77167fb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fe20588, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ce139a4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6973bf95]
+2017-08-13 21:24:15 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:24:16 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:24:16 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:24:16 CST 2017]; root of context hierarchy
+2017-08-13 21:24:17 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:24:18 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:24:18 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:24:18 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 40 ms.
+2017-08-13 21:24:19 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@68f32020]; rollback [true]
+2017-08-13 21:24:54 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = java.lang.NullPointerException, mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:24:54 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:24:16 CST 2017]; root of context hierarchy
+2017-08-13 21:24:54 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:24:54 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:26:42 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:26:42 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@124c278f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15b204a1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77167fb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fe20588, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ce139a4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6973bf95]
+2017-08-13 21:26:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:26:43 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:26:43 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:26:43 CST 2017]; root of context hierarchy
+2017-08-13 21:26:44 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:26:45 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:26:45 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:26:45 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 54 ms.
+2017-08-13 21:26:46 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@68f32020]; rollback [true]
+2017-08-13 21:26:47 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:26:47 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:26:43 CST 2017]; root of context hierarchy
+2017-08-13 21:26:47 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:26:47 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:27:12 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:27:12 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@124c278f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15b204a1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@77167fb7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fe20588, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ce139a4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6973bf95]
+2017-08-13 21:27:12 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:27:13 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:27:13 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:27:13 CST 2017]; root of context hierarchy
+2017-08-13 21:27:14 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:27:15 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:27:15 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:27:15 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 43 ms.
+2017-08-13 21:27:16 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@68f32020]; rollback [true]
+2017-08-13 21:27:42 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@1639f93a testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3491e86e, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7308ffff testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:27:42 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5e82df6a: startup date [Sun Aug 13 21:27:13 CST 2017]; root of context hierarchy
+2017-08-13 21:27:42 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:27:42 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-13 21:38:30 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-13 21:38:30 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@146ba0ac, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4dfa3a9d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6eebc39e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@464bee09, org.springframework.test.context.transaction.TransactionalTestExecutionListener@f6c48ac, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@13deb50e]
+2017-08-13 21:38:31 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-13 21:38:31 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-13 21:38:31 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@731a74c: startup date [Sun Aug 13 21:38:31 CST 2017]; root of context hierarchy
+2017-08-13 21:38:32 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-13 21:38:33 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-13 21:38:33 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-13 21:38:33 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 37 ms.
+2017-08-13 21:38:34 INFO  TransactionContext:101 - Began transaction (1) for test context [DefaultTestContext@6e1d8f9e testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3e34ace1, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@45cff11c testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@62fe6067]; rollback [true]
+2017-08-13 21:38:35 INFO  TransactionContext:136 - Rolled back transaction for test context [DefaultTestContext@6e1d8f9e testClass = UserServiceTests, testInstance = com.jerry.demo.usercenter.test.services.UserServiceTests@3e34ace1, testMethod = testCreateUser@UserServiceTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@45cff11c testClass = UserServiceTests, locations = '{classpath:test-app-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+2017-08-13 21:38:35 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@731a74c: startup date [Sun Aug 13 21:38:31 CST 2017]; root of context hierarchy
+2017-08-13 21:38:35 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-13 21:38:35 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager

@@ -19,5 +19,5 @@ public class UserAuthInfo {
 
     private Long userId;
 
-    private List<UserAuthority> authorities = new ArrayList<>();
+    private List<String> authorities = new ArrayList<>();
 }

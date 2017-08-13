@@ -6,6 +6,7 @@ import com.jerry.demo.usercenter.test.BaseJUnitTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -25,6 +26,7 @@ public class UserMapperTests extends BaseJUnitTests {
         user.setGmtModified(new Date());
         user.setNickname("John");
         user.setAvatar("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3641777042,4062717379&fm=26&gp=0.jpg");
+        user.setAuthorities(Arrays.asList("ROLE_USER"));
 
         int rows = userMapper.insert(user);
         assertEquals(1, rows);
@@ -38,6 +40,7 @@ public class UserMapperTests extends BaseJUnitTests {
         user.setGmtModified(new Date());
         user.setNickname("Jackson");
         user.setAvatar("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3641777042,4062717379&fm=26&gp=0.jpg");
+        user.setAuthorities(Arrays.asList("ROLE_USER", "USER_ADMIN"));
 
         int rows = userMapper.insert(user);
         assertEquals(1, rows);

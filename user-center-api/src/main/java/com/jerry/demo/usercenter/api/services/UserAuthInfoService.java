@@ -7,6 +7,12 @@ public interface UserAuthInfoService {
 
     UserAuthInfo getUserAuthInfo(AuthType type, String identifier);
 
+    boolean updateCredential(AuthType authType
+            , String identifier
+            , String credential);
+
     boolean bindUser(AuthType type, String identifier, long userId);
 
 }
+
+

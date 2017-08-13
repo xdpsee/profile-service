@@ -9,19 +9,37 @@
         <result property="gmtModified" javaType="java.util.Date" column="gmt_modified" jdbcType="TIMESTAMP"/>
         <result property="nickname" javaType="String" column="nickname" jdbcType="VARCHAR"/>
         <result property="avatar" javaType="String" column="avatar" jdbcType="VARCHAR"/>
+        <result property="authorities" javaType="List" column="authorities" jdbcType="VARCHAR"
+                typeHandler="com.jerry.demo.usercenter.data.utils.StringListTypeHandler"/>
     </resultMap>
 
     <insert id="insert" parameterType="UserPO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO users (
-            gmt_create,
-            gmt_modified,
-            nickname,
-            avatar
+        gmt_create,
+        gmt_modified,
+        nickname,
+        avatar,
+        authorities
         ) VALUES (
-            #{gmtCreate},
-            #{gmtModified},
-            #{nickname},
-            #{avatar}
+        <choose>
+            <when test="gmtCreate == null">
+                now(),
+            </when>
+            <otherwise>
+                #{gmtCreate},
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="gmtModified == null">
+                now(),
+            </when>
+            <otherwise>
+                #{gmtModified},
+            </otherwise>
+        </choose>
+        #{nickname},
+        #{avatar},
+        #{authorities}
         )
     </insert>
 
@@ -39,6 +57,10 @@
             , avatar = #{avatar}
         </if>
         WHERE id = #{userId}
+    </update>
+
+    <update id="updateAuthorities">
+        UPDATE users set authorities = #{authorities} where id = #{userId}
     </update>
 
 </mapper>

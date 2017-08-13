@@ -1,9 +1,13 @@
 package com.jerry.demo.usercenter.data.po;
 
 import com.jerry.demo.usercenter.api.enums.AuthType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserAuthInfoPO extends BasePO {
     /**
      * 认证类型
@@ -25,6 +29,8 @@ public class UserAuthInfoPO extends BasePO {
      * 是否已验证
      */
     private boolean verified;
+
 }
+
 
 

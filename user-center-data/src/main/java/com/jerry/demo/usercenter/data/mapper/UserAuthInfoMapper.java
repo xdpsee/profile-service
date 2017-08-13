@@ -8,6 +8,9 @@ public interface UserAuthInfoMapper {
 
     int insert(UserAuthInfoPO userAuthInfo);
 
+    int updateCredential(@Param("type") AuthType type
+            , @Param("identifier") String identifier
+            , @Param("credential") String credential);
 
     UserAuthInfoPO select(@Param("type") AuthType type
             , @Param("identifier") String identifier);

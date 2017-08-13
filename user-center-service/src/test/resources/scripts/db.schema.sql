@@ -4,6 +4,7 @@ CREATE TABLE users (
   gmt_modified TIMESTAMP NOT NULL,
   nickname VARCHAR(64) NOT NULL UNIQUE ,
   avatar VARCHAR(255),
+  authorities TEXT NOT NULL,
   PRIMARY KEY (id)
 );
 

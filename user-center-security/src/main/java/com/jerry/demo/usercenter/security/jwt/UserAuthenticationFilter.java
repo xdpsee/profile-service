@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
-public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
+public class UserAuthenticationFilter extends OncePerRequestFilter {
 
     // Http request header
     private static final String AUTHORIZATION = "Authorization";
@@ -54,7 +54,7 @@ public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
         final Principal principal = UserTokenUtils.getPrincipal(jwtToken);
         final Date expireDate = UserTokenUtils.getExpiresDate(jwtToken);
         if (null == expireDate || null == principal) {
-            throw new IllegalAuthTokenException("Token非法");
+            throw new IllegalAuthTokenException("无效Token");
         }
 
         if (expireDate.before(new Date())) {
@@ -68,7 +68,7 @@ public class UserAuthenticationTokenFilter extends OncePerRequestFilter {
                     , authInfo.getIdentifier()
                     , null
                     , authInfo.getAuthorities().stream()
-                    .map(e -> new SimpleGrantedAuthority(e.getRole()))
+                    .map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList()));
         }
 

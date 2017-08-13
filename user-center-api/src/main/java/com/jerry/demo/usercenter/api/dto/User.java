@@ -20,5 +20,7 @@ public class User {
 
     private String avatar;
 
+    private List<String> authorities = new ArrayList<>();
+
 }
 

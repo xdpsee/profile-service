@@ -1,6 +1,7 @@
 package com.jerry.demo.usercenter.test.services;
 
 import com.jerry.demo.usercenter.api.dto.User;
+import com.jerry.demo.usercenter.api.enums.AuthType;
 import com.jerry.demo.usercenter.api.services.UserService;
 import com.jerry.demo.usercenter.data.mapper.UserMapper;
 import com.jerry.demo.usercenter.data.po.UserPO;
@@ -9,6 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -22,6 +24,23 @@ public class UserServiceTests extends BaseJUnitTests {
     private UserMapper userMapper;
     @Autowired
     private UserService userService;
+
+    @Test
+    @Transactional
+    public void testCreateUser() throws Exception {
+
+        try {
+            userService.createUser("zhcen"
+                    , Arrays.asList("ROLE-USER")
+                    , AuthType.USERNAME
+                    , "zhcen"
+                    , "123456");
+        } catch (Exception e) {
+            throw e;
+        }
+
+        assertTrue(true);
+    }
 
     @Test
     @Transactional
@@ -53,10 +72,12 @@ public class UserServiceTests extends BaseJUnitTests {
         int rows = userMapper.insert(userPO);
         assertEquals(1, rows);
 
-        User user = new User(userPO.getId(), System.currentTimeMillis(), "John Mick", userPO.getAvatar());
+        User user = new User(userPO.getId(), System.currentTimeMillis(), "John Mick", userPO.getAvatar(), userPO.getAuthorities());
         boolean ret = userService.updateAvatar(user.getId(), user.getAvatar());
         assertTrue(ret);
 
+        ret = userService.updateAuthorities(user.getId(), Arrays.asList("ROLE_USER", "ROLE_ADMIN"));
+        assertTrue(ret);
     }
 
 }
