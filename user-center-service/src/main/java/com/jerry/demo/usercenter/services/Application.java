@@ -10,6 +10,15 @@ public class Application {
         context.registerShutdownHook();
 
         System.out.println("Profile service startup finished.");
+
+        while (true) {
+            try {
+                Thread.sleep(1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

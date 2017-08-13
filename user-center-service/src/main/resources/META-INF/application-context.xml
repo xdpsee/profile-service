@@ -23,6 +23,8 @@
           p:configLocation="ehcache.xml"
           p:shared="true"/>
 
+    <import resource="datasource-context.xml"/>
     <import resource="dubbo-provider.xml"/>
+
 
 </beans>

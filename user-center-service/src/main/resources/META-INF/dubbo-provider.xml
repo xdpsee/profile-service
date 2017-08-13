@@ -2,7 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="user-center-service"/>
 
@@ -10,8 +13,12 @@
 
     <dubbo:protocol name="dubbo" port="20880"/>
 
-    <dubbo:service interface="com.jerry.demo.usercenter.api.services.UserService" ref="userInfoService"/>
+    <dubbo:service interface="com.jerry.demo.usercenter.api.services.UserService" ref="userService"/>
+    <dubbo:service interface="com.jerry.demo.usercenter.api.services.UserAuthInfoService" ref="authInfoService"/>
 
-    <bean id="userInfoService" class="com.jerry.demo.usercenter.services.impl.UserServiceImpl"/>
+
+    <bean id="userService" class="com.jerry.demo.usercenter.services.impl.UserServiceImpl"/>
+    <bean id="authInfoService" class="com.jerry.demo.usercenter.services.impl.UserAuthInfoServiceImpl"/>
+
 
 </beans>

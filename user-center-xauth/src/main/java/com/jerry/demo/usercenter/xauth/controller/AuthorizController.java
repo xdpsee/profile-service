@@ -9,12 +9,10 @@ import com.jerry.demo.usercenter.xauth.exception.UsernameNotFoundException;
 import com.jerry.demo.usercenter.xauth.security.UserAuthenticationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/xauth/token")
 public class AuthorizController {
 
@@ -22,24 +20,21 @@ public class AuthorizController {
     private UserAuthenticationUtils authenticationUtils;
 
     @ResponseBody
-    @RequestMapping("/claim")
+    @RequestMapping(value = "/claim", method = RequestMethod.POST)
     public JwtTokenResponse claimToken(@RequestBody TokenClaimRequest request) {
-
         try {
             String token = authenticationUtils.authenticate(request.getPrincipal(), request.getCredential());
             return new JwtTokenResponse(0, "ok", token);
         } catch (Exception e) {
             return error(e);
         }
-
     }
 
     @ResponseBody
-    @RequestMapping("/refresh")
+    @RequestMapping(value = "/refresh", method = RequestMethod.POST)
     public String refreshToken(@RequestBody TokenRefreshRequest request) {
         return "";
     }
-
 
     private JwtTokenResponse error(Exception e) {
         int error;

@@ -111,6 +111,12 @@
         </dependency>
 
         <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.193</version>
@@ -154,80 +160,39 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>appassembler-maven-plugin</artifactId>
-                <version>2.0.0</version>
-                <configuration>
-                    <assembleDirectory>${project.build.directory}/generated-resources/appassembler/jsw/profile-service</assembleDirectory>
-                    <repositoryName>lib</repositoryName>
-                    <binFolder>bin</binFolder>
-                    <configurationDirectory>conf</configurationDirectory>
-                    <configurationSourceDirectory>src/main/resources/conf</configurationSourceDirectory>
-                    <copyConfigurationDirectory>true</copyConfigurationDirectory>
-                    <repositoryLayout>flat</repositoryLayout>
-                    <encoding>UTF-8</encoding>
-                    <logsDirectory>logs</logsDirectory>
-                    <tempDirectory>tmp</tempDirectory>
-                    <daemons>
-                        <daemon>
-                            <id>user-center-service</id>
-                            <mainClass>com.jerry.demo.usercenter.services.Application</mainClass>
-                            <platforms>
-                                <platform>jsw</platform>
-                            </platforms>
-                            <generatorConfigurations>
-                                <generatorConfiguration>
-                                    <generator>jsw</generator>
-                                    <includes>
-                                        <include>linux-x86-64</include>
-                                        <include>windows-x86-64</include>
-                                        <include>macosx-universal-64</include>
-                                    </includes>
-                                    <configuration>
-                                        <property>
-                                            <name>configuration.directory.in.classpath.first</name>
-                                            <value>conf</value>
-                                        </property>
-                                        <property>
-                                            <name>wrapper.ping.timeout</name>
-                                            <value>120</value>
-                                        </property>
-                                        <property>
-                                            <name>set.default.REPO_DIR</name>
-                                            <value>lib</value>
-                                        </property>
-                                        <property>
-                                            <name>wrapper.logfile</name>
-                                            <value>logs/server.log</value>
-                                        </property>
-                                    </configuration>
-                                </generatorConfiguration>
-                            </generatorConfigurations>
-                            <jvmSettings>
-                                <systemProperties>
-                                    <systemProperty>appserver.home=.</systemProperty>
-                                    <systemProperty>appserver.base=.</systemProperty>
-                                    <systemProperty>java.io.tmpdir=./temp</systemProperty>
-                                </systemProperties>
-                                <extraArguments>
-                                    <extraArgument>-XX:MaxPermSize=256m</extraArgument>
-                                </extraArguments>
-                                <initialMemorySize>256</initialMemorySize>
-                                <maxMemorySize>1024</maxMemorySize>
-                            </jvmSettings>
-                        </daemon>
-                    </daemons>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
-                            <goal>generate-daemons</goal>
+                            <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.jerry.demo.usercenter.services.Application</mainClass>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.handlers</resource>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.schemas</resource>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.tooling</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>
 

@@ -5,10 +5,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+           http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
-    <security:http auto-config='true' authentication-manager-ref="authenticationManager">
-        <security:intercept-url pattern="/**" access="ROLE_USER"/>
+    <security:http auto-config='true'
+                   once-per-request="true"
+                   authentication-manager-ref="authenticationManager">
+        <security:custom-filter ref="authenticationTokenFilter" before="PRE_AUTH_FILTER"/>
+        <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/xauth/token/claim" access="permitAll"/>
+        <security:intercept-url pattern="/xauth/token/refresh" access="permitAll"/>
     </security:http>
 
     <security:authentication-manager alias="authenticationManager">
@@ -16,5 +21,8 @@
     </security:authentication-manager>
 
     <bean id="authenticationProvider" class="com.jerry.demo.usercenter.xauth.security.UserAuthenticationProvider"/>
+    <bean id="authenticationTokenFilter" class="com.jerry.demo.usercenter.security.jwt.UserAuthenticationTokenFilter">
+        <property name="userAuthInfoService" ref="authInfoService"/>
+    </bean>
 
 </beans>
