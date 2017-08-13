@@ -20,7 +20,9 @@ public class AuthorizController {
     private UserAuthenticationUtils authenticationUtils;
 
     @ResponseBody
-    @RequestMapping(value = "/claim", method = RequestMethod.POST)
+    @RequestMapping(value = "/claim"
+            , method = RequestMethod.POST
+            , produces = "application/json;utf-8")
     public JwtTokenResponse claimToken(@RequestBody TokenClaimRequest request) {
         try {
             String token = authenticationUtils.authenticate(request.getPrincipal(), request.getCredential());
@@ -31,7 +33,9 @@ public class AuthorizController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/refresh", method = RequestMethod.POST)
+    @RequestMapping(value = "/refresh"
+            , method = RequestMethod.POST
+            , produces = "application/json;utf-8")
     public String refreshToken(@RequestBody TokenRefreshRequest request) {
         return "";
     }
