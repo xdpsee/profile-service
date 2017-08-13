@@ -8,10 +8,8 @@
            http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
     <security:http auto-config='true'
-                   once-per-request="true"
                    authentication-manager-ref="authenticationManager">
         <security:custom-filter ref="authenticationTokenFilter" before="PRE_AUTH_FILTER"/>
-        <security:intercept-url pattern="/" access="permitAll"/>
         <security:intercept-url pattern="/xauth/token/claim" access="permitAll"/>
         <security:intercept-url pattern="/xauth/token/refresh" access="permitAll"/>
     </security:http>

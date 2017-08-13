@@ -49,6 +49,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
+    <servlet>
+        <servlet-name>404</servlet-name>
+        <jsp-file>/WEB-INF/views/404.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>404</servlet-name>
+        <url-pattern>/404</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -58,5 +68,10 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404</location>
+    </error-page>
 
 </web-app>
