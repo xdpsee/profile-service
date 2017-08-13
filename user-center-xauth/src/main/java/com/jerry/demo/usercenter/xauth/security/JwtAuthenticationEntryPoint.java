@@ -1,8 +1,5 @@
 package com.jerry.demo.usercenter.xauth.security;
 
-import com.jerry.demo.usercenter.xauth.exception.EmailNotFoundException;
-import com.jerry.demo.usercenter.xauth.exception.MobileNotFoundException;
-import com.jerry.demo.usercenter.xauth.exception.UsernameNotFoundException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -24,15 +21,8 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
         // This is invoked when user tries to access a secured REST resource without supplying any credentials
         // We should just send a 401 Unauthorized response because there is no 'createToken page' to redirect to
 
-        if (authException instanceof EmailNotFoundException) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-        } else if (authException instanceof MobileNotFoundException) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-        } else if (authException instanceof UsernameNotFoundException) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-        } else {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-        }
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+
     }
 }
 
