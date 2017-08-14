@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/xauth/token")
-public class AuthorizController {
+public class UserAuthController {
 
     @Autowired
     private UserAuthenticationUtils authenticationUtils;
