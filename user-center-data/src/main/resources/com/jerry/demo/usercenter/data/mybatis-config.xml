@@ -22,12 +22,16 @@
 
     <typeAliases>
         <typeAlias alias="AuthType" type="com.jerry.demo.usercenter.api.enums.AuthType"/>
+        <typeAlias alias="SocialType" type="com.jerry.demo.usercenter.api.enums.SocialType"/>
         <typeAlias alias="UserPO" type="com.jerry.demo.usercenter.data.po.UserPO"/>
         <typeAlias alias="UserAuthInfoPO" type="com.jerry.demo.usercenter.data.po.UserAuthInfoPO"/>
+        <typeAlias alias="UserOpenInfoPO" type="com.jerry.demo.usercenter.data.po.UserOpenInfoPO"/>
+
     </typeAliases>
 
     <typeHandlers>
         <typeHandler handler="com.jerry.demo.usercenter.data.utils.AuthTypeHandler"/>
+        <typeHandler handler="com.jerry.demo.usercenter.data.utils.SocialTypeHandler"/>
         <typeHandler handler="com.jerry.demo.usercenter.data.utils.StringListTypeHandler"/>
 
     </typeHandlers>

@@ -210,3 +210,195 @@ INSERT INTO users (
 2017-08-13 21:38:35 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@731a74c: startup date [Sun Aug 13 21:38:31 CST 2017]; root of context hierarchy
 2017-08-13 21:38:35 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
 2017-08-13 21:38:35 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-15 22:30:02 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-15 22:30:02 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@45018215, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65d6b83b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19, org.springframework.test.context.support.DirtiesContextTestExecutionListener@30b7c004, org.springframework.test.context.transaction.TransactionalTestExecutionListener@79efed2d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2928854b]
+2017-08-15 22:30:03 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-15 22:30:03 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-15 22:30:04 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Tue Aug 15 22:30:04 CST 2017]; root of context hierarchy
+2017-08-15 22:30:05 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-15 22:30:05 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-15 22:30:06 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-15 22:30:06 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 44 ms.
+2017-08-15 22:30:06 WARN  GenericApplicationContext:551 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [test-data-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+2017-08-15 22:30:06 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-15 22:30:06 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-15 22:30:06 ERROR TestContextManager:234 - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19] to prepare test instance [com.jerry.demo.usercenter.test.mapper.UserOpenInfoMapperTests@2ce45a7b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [test-data-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 24 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:523)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 39 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:521)
+	... 42 more
+Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:859)
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:831)
+	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:655)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:302)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:109)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 44 more
+2017-08-15 22:31:33 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-15 22:31:33 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@45018215, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65d6b83b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19, org.springframework.test.context.support.DirtiesContextTestExecutionListener@30b7c004, org.springframework.test.context.transaction.TransactionalTestExecutionListener@79efed2d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2928854b]
+2017-08-15 22:31:33 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-15 22:31:34 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-15 22:31:34 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Tue Aug 15 22:31:34 CST 2017]; root of context hierarchy
+2017-08-15 22:31:36 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-15 22:31:37 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-15 22:31:37 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-15 22:31:37 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 87 ms.
+2017-08-15 22:31:38 WARN  GenericApplicationContext:551 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [test-data-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+2017-08-15 22:31:38 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-15 22:31:38 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-15 22:31:38 ERROR TestContextManager:234 - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19] to prepare test instance [com.jerry.demo.usercenter.test.mapper.UserOpenInfoMapperTests@2ce45a7b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [test-data-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 24 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chanjerry/workspace/profile-service/user-center-data/target/classes/com/jerry/demo/usercenter/data/mapper/UserOpenInfoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:523)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 39 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:521)
+	... 42 more
+Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper.insert
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:859)
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:831)
+	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:655)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:302)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:109)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 44 more
+2017-08-15 22:33:18 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-15 22:33:18 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@45018215, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65d6b83b, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d706f19, org.springframework.test.context.support.DirtiesContextTestExecutionListener@30b7c004, org.springframework.test.context.transaction.TransactionalTestExecutionListener@79efed2d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2928854b]
+2017-08-15 22:33:19 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-15 22:33:20 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-15 22:33:20 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Tue Aug 15 22:33:20 CST 2017]; root of context hierarchy
+2017-08-15 22:33:21 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-15 22:33:22 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-15 22:33:22 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-15 22:33:23 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 81 ms.
+2017-08-15 22:33:24 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@6a28ffa4: startup date [Tue Aug 15 22:33:20 CST 2017]; root of context hierarchy
+2017-08-15 22:33:24 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-15 22:33:24 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-15 22:35:27 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-15 22:35:27 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@42e26948, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57baeedf, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@343f4d3d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@53b32d7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5442a311, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@548e7350]
+2017-08-15 22:35:27 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-15 22:35:28 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-15 22:35:28 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@6f1fba17: startup date [Tue Aug 15 22:35:28 CST 2017]; root of context hierarchy
+2017-08-15 22:35:29 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-15 22:35:31 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-15 22:35:32 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-15 22:35:32 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 110 ms.
+2017-08-15 22:35:35 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@6f1fba17: startup date [Tue Aug 15 22:35:28 CST 2017]; root of context hierarchy
+2017-08-15 22:35:35 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-15 22:35:35 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager
+2017-08-15 22:35:48 INFO  DefaultTestContextBootstrapper:260 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-08-15 22:35:48 INFO  DefaultTestContextBootstrapper:187 - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@42d80b78, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3bfdc050, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1bce4f0a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5e3a8624, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c3bd550, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@91161c7]
+2017-08-15 22:35:48 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-app-context.xml]
+2017-08-15 22:35:49 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [test-data-context.xml]
+2017-08-15 22:35:49 INFO  GenericApplicationContext:583 - Refreshing org.springframework.context.support.GenericApplicationContext@5abca1e0: startup date [Tue Aug 15 22:35:49 CST 2017]; root of context hierarchy
+2017-08-15 22:35:50 INFO  EhCacheManagerFactoryBean:130 - Initializing EhCache CacheManager
+2017-08-15 22:35:52 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2017-08-15 22:35:52 INFO  ScriptUtils:442 - Executing SQL script from class path resource [scripts/db.schema.sql]
+2017-08-15 22:35:52 INFO  ScriptUtils:508 - Executed SQL script from class path resource [scripts/db.schema.sql] in 64 ms.
+2017-08-15 22:35:54 INFO  GenericApplicationContext:984 - Closing org.springframework.context.support.GenericApplicationContext@5abca1e0: startup date [Tue Aug 15 22:35:49 CST 2017]; root of context hierarchy
+2017-08-15 22:35:54 INFO  EmbeddedDatabaseFactory:217 - Shutting down embedded database: url='jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2017-08-15 22:35:54 INFO  EhCacheManagerFactoryBean:187 - Shutting down EhCache CacheManager

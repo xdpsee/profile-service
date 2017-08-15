@@ -13,7 +13,7 @@ public class UserTokenUtils {
 
     private static final String CLAIM_KEY_PRINCIPAL = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
-    private static final String secret = "";
+    private static final String secret = "PT!nKg4ySo7C4waA&EM%5XJC%qZkmw3I";
     private static final Long expiration = 10000000L;
 
     public static String generateToken(Principal principal) {

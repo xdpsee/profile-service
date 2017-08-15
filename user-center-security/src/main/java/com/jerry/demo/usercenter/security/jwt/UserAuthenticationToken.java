@@ -33,7 +33,7 @@ public class UserAuthenticationToken extends AbstractAuthenticationToken {
 
     @Override
     public Object getPrincipal() {
-        return String.format("%s:%s", type, identifier);
+        return new Principal(type, identifier);
     }
 
     public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {

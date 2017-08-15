@@ -62,7 +62,7 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
         }
 
         UserAuthenticationToken authenticationToken = null;
-        UserAuthInfo authInfo = userAuthInfoService.getUserAuthInfo(principal.getAuthType(), principal.getIdentifier());
+        UserAuthInfo authInfo = userAuthInfoService.getAuthInfo(principal.getAuthType(), principal.getIdentifier());
         if (authInfo != null) {
             authenticationToken = new UserAuthenticationToken(authInfo.getType()
                     , authInfo.getIdentifier()

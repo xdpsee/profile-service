@@ -12,6 +12,10 @@ public interface UserAuthInfoMapper {
             , @Param("identifier") String identifier
             , @Param("credential") String credential);
 
+    int updateUserId(@Param("type") AuthType type
+            , @Param("identifier") String identifier
+            , @Param("userId") long userId);
+
     UserAuthInfoPO select(@Param("type") AuthType type
             , @Param("identifier") String identifier);
 

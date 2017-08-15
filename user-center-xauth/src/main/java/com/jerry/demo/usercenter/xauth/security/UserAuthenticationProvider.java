@@ -26,7 +26,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 
         UserAuthenticationToken token = (UserAuthenticationToken) auth;
 
-        final UserAuthInfo userAuthInfo = userAuthInfoService.getUserAuthInfo(token.getType(), token.getIdentifier());
+        final UserAuthInfo userAuthInfo = userAuthInfoService.getAuthInfo(token.getType(), token.getIdentifier());
         if (userAuthInfo == null) {
             if (AuthType.EMAIL.equals(token.getType())) {
                 throw new EmailNotFoundException();

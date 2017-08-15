@@ -2,6 +2,8 @@ package com.jerry.demo.usercenter.services.impl;
 
 import com.jerry.demo.usercenter.api.dto.UserAuthInfo;
 import com.jerry.demo.usercenter.api.enums.AuthType;
+import com.jerry.demo.usercenter.api.exception.UserBindingException;
+import com.jerry.demo.usercenter.api.exception.UserNotFoundException;
 import com.jerry.demo.usercenter.api.services.UserAuthInfoService;
 import com.jerry.demo.usercenter.data.mapper.UserAuthInfoMapper;
 import com.jerry.demo.usercenter.data.mapper.UserMapper;
@@ -21,7 +23,7 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
     private UserAuthInfoMapper authInfoMapper;
 
     @Override
-    public UserAuthInfo getUserAuthInfo(AuthType type, String identifier) {
+    public UserAuthInfo getAuthInfo(AuthType type, String identifier) {
 
         final UserAuthInfo result = new UserAuthInfo();
 
@@ -50,8 +52,25 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
     }
 
     @Override
-    public boolean bindUser(AuthType type, String identifier, long userId) {
-        return false;
+    public boolean bindUser(AuthType type, String identifier, long userId)
+            throws UserNotFoundException, UserBindingException {
+
+        final UserAuthInfoPO authInfo = authInfoMapper.select(type, identifier);
+        if (null == authInfo) {
+            throw new UserNotFoundException("认证信息不存在");
+        }
+
+        final UserPO user = userMapper.selectById(userId);
+        if (null == user) {
+            throw new UserNotFoundException("用户不存在");
+        }
+
+        if (authInfo.getUserId() > 0 && authInfo.getUserId() != userId) {
+            throw new UserBindingException("用户已绑定");
+        }
+
+        return authInfoMapper.updateUserId(type, identifier, userId) > 0;
+
     }
 }
 

@@ -23,3 +23,17 @@ CREATE TABLE user_auth_infos (
 );
 
 
+CREATE TABLE user_open_infos (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  gmt_create TIMESTAMP NOT NULL,
+  gmt_modified TIMESTAMP NOT NULL,
+  type int NOT NULL,
+  identifier VARCHAR(64) NOT NULL ,
+  open_id BIGINT NOT NULL ,
+  nickname VARCHAR(64) NOT NULL ,
+  avatar VARCHAR(255) NOT NULL ,
+  PRIMARY KEY (id),
+  UNIQUE (type,open_id)
+);
+
+

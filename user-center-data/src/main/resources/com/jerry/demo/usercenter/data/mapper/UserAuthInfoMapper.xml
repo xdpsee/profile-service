@@ -54,6 +54,11 @@
         WHERE type = #{type} and identifier = #{identifier}
     </update>
 
+    <update id="updateUserId">
+        UPDATE user_auth_infos set user_id = #{userId}
+        WHERE type = #{type} and identifier = #{identifier}
+    </update>
+
     <select id="select" resultMap="userAuthInfoMap">
         SELECT * FROM user_auth_infos
         WHERE type = #{type} and identifier = #{identifier}
