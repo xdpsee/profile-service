@@ -11,6 +11,7 @@ import com.jerry.demo.usercenter.data.po.UserAuthInfoPO;
 import com.jerry.demo.usercenter.data.po.UserPO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Date;
 
@@ -21,6 +22,8 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
     private UserMapper userMapper;
     @Autowired
     private UserAuthInfoMapper authInfoMapper;
+
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public UserAuthInfo getAuthInfo(AuthType type, String identifier) {
@@ -71,6 +74,17 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
 
         return authInfoMapper.updateUserId(type, identifier, userId) > 0;
 
+    }
+
+    @Override
+    public boolean matchCredential(AuthType type, String identifier, String credential) {
+
+        final UserAuthInfoPO authInfo = authInfoMapper.select(type, identifier);
+        if (null != authInfo) {
+            return passwordEncoder.matches(authInfo.getCredential(), credential);
+        }
+
+        return false;
     }
 }
 

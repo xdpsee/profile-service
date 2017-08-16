@@ -12,14 +12,11 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UserAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private UserAuthInfoService userAuthInfoService;
-
-    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -37,7 +34,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
             }
         }
 
-        if (!passwordEncoder.matches((String)token.getCredentials(), userAuthInfo.getCredential())) {
+        if (!userAuthInfoService.matchCredential(token.getType(), token.getIdentifier(), (String)token.getCredentials())) {
             throw new BadCredentialsException("密码错误");
         }
 

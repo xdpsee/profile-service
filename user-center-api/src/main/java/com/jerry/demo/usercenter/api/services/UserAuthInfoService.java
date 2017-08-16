@@ -9,13 +9,14 @@ public interface UserAuthInfoService {
 
     UserAuthInfo getAuthInfo(AuthType type, String identifier);
 
+    boolean bindUser(AuthType type, String identifier, long userId)
+            throws UserNotFoundException, UserBindingException;
+
     boolean updateCredential(AuthType authType
             , String identifier
             , String credential);
 
-    boolean bindUser(AuthType type, String identifier, long userId)
-            throws UserNotFoundException, UserBindingException;
-
+    boolean matchCredential(AuthType type, String identifier, String credential);
 }
 
 

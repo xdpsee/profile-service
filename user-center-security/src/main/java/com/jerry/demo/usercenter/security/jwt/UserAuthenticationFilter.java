@@ -54,7 +54,7 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
         final Principal principal = UserTokenUtils.getPrincipal(jwtToken);
         final Date expireDate = UserTokenUtils.getExpiresDate(jwtToken);
         if (null == expireDate || null == principal) {
-            throw new IllegalAuthTokenException("无效Token");
+            throw new IllegalAuthTokenException("Token无效");
         }
 
         if (expireDate.before(new Date())) {

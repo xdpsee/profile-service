@@ -8,13 +8,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class UserTokenUtils {
 
     private static final String CLAIM_KEY_PRINCIPAL = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
     private static final String secret = "PT!nKg4ySo7C4waA&EM%5XJC%qZkmw3I";
-    private static final Long expiration = 10000000L;
+    private static final Long expiration = TimeUnit.DAYS.toSeconds(7);
 
     public static String generateToken(Principal principal) {
         Map<String, Object> claims = new HashMap<>();

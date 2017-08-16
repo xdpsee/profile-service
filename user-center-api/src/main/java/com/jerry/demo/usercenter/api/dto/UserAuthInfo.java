@@ -13,8 +13,6 @@ public class UserAuthInfo {
 
     private String identifier;
 
-    private String credential;
-
     private boolean verified;
 
     private Long userId;
