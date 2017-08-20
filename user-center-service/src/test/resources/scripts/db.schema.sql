@@ -1,7 +1,7 @@
 CREATE TABLE users (
   id BIGINT NOT NULL AUTO_INCREMENT,
-  gmt_create TIMESTAMP NOT NULL,
-  gmt_modified TIMESTAMP NOT NULL,
+  gmt_create DATETIME NOT NULL,
+  gmt_modified DATETIME NOT NULL,
   nickname VARCHAR(64) NOT NULL UNIQUE ,
   avatar VARCHAR(255),
   authorities TEXT NOT NULL,
@@ -11,8 +11,8 @@ CREATE TABLE users (
 
 CREATE TABLE user_auth_infos (
   id BIGINT NOT NULL AUTO_INCREMENT,
-  gmt_create TIMESTAMP NOT NULL,
-  gmt_modified TIMESTAMP NOT NULL,
+  gmt_create DATETIME NOT NULL,
+  gmt_modified DATETIME NOT NULL,
   type int NOT NULL,
   identifier VARCHAR(64) NOT NULL ,
   credential VARCHAR(255) NOT NULL ,
@@ -25,8 +25,8 @@ CREATE TABLE user_auth_infos (
 
 CREATE TABLE user_open_infos (
   id BIGINT NOT NULL AUTO_INCREMENT,
-  gmt_create TIMESTAMP NOT NULL,
-  gmt_modified TIMESTAMP NOT NULL,
+  gmt_create DATETIME NOT NULL,
+  gmt_modified DATETIME NOT NULL,
   type int NOT NULL,
   identifier VARCHAR(64) NOT NULL ,
   open_id BIGINT NOT NULL ,
