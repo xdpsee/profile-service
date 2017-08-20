@@ -31,7 +31,7 @@ public class UserServiceTests extends BaseJUnitTests {
 
         try {
             userService.createUser("zhcen"
-                    , Arrays.asList("ROLE-USER")
+                    , Arrays.asList("ROLE_USER")
                     , AuthType.USERNAME
                     , "zhcen"
                     , "123456");

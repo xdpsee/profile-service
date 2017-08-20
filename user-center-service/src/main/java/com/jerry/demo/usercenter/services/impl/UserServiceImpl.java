@@ -15,6 +15,7 @@ import net.sf.ehcache.CacheManager;
 import org.apache.ibatis.reflection.ExceptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -29,6 +30,8 @@ public class UserServiceImpl implements UserService {
     private UserAuthInfoMapper authInfoMapper;
     @Autowired
     private CacheManager cacheManager;
+
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -52,7 +55,7 @@ public class UserServiceImpl implements UserService {
         try {
             UserAuthInfoPO authInfoPO = new UserAuthInfoPO(authType
                     , identifier
-                    , credential
+                    , encodeCredential(authType, credential)
                     , userPO.getId()
                     , authType != AuthType.EMAIL);
             authInfoMapper.insert(authInfoPO);
@@ -109,6 +112,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateAuthorities(userId, authorities) > 0;
     }
 
+    private String encodeCredential(AuthType authType, String credential) {
+
+        if (authType == AuthType.USERNAME || authType == AuthType.EMAIL || authType == AuthType.MOBILE) {
+            return passwordEncoder.encode(credential);
+        }
+
+        return credential;
+    }
 
 }
 

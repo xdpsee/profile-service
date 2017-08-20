@@ -81,7 +81,11 @@ public class UserAuthInfoServiceImpl implements UserAuthInfoService {
 
         final UserAuthInfoPO authInfo = authInfoMapper.select(type, identifier);
         if (null != authInfo) {
-            return passwordEncoder.matches(authInfo.getCredential(), credential);
+            if (type == AuthType.USERNAME || type == AuthType.EMAIL || type == AuthType.MOBILE) {
+                return passwordEncoder.matches(authInfo.getCredential(), credential);
+            } else {
+                return authInfo.getCredential().equals(credential);
+            }
         }
 
         return false;
